@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Redirecting...</title>
+</head>
+<body>
+    <div class="content">
+        <h1>Redirecting...</h1>
+        <div class="loading-container">
+            <img id="loading-gif" src="https://i.pinimg.com/originals/00/73/92/007392f1fe5ea012f5a9e2016fb83f09.gif" alt="Loading">
+            <div class="progress-bar">
+                <div id="filling-bar"></div>
+            </div>
+            <p id="countdown">Please wait for redirect in <span id="timer">5</span> seconds.</p>
+            <p class="countdown-percentage" id="percentage">0%</p>
+            <button id="pause-button" class="cyberpunk-button pause-button">Pause Countdown</button>
+            <button id="skip-button" class="cyberpunk-button pause-button">Skip Redirect Countdown</button>
+        </div>
+        <p class="marquee-text">Explore the Mysteries of the Digital Realm</p>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+            <img id="construction-gif" class="construction-gif" src="https://media.discordapp.net/attachments/988830601857617970/1138589679084654732/nSFvo8J.png?width=250&height=250" alt="Under Construction">
+        </a>
+    </div>
+    <div class="banner-container">
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="banner">
+            <span class="banner-text">Don't Forget to Watch</span>
+            <img src="https://i.pinimg.com/564x/3c/e8/63/3ce863f9e31f4ba59429055a6130cdbd.jpg" alt="Rickroll Banner">
+        </a>
+    </div>
+
+    <script>
+        var seconds = 5;
+        var countdownElement = document.getElementById("timer");
+        var fillingBar = document.getElementById("filling-bar");
+        var percentageElement = document.getElementById("percentage");
+        var pauseButton = document.getElementById("pause-button");
+        var skipButton = document.getElementById("skip-button");
+        var constructionGif = document.getElementById("construction-gif");
+        var loadingGif = document.getElementById("loading-gif");
+        var paused = false;
+        var originalConstructionImage = constructionGif.src;
+
+        function updateCountdown() {
+            if (!paused) {
+                countdownElement.textContent = seconds;
+                var percentage = ((5 - seconds) / 5) * 100;
+                fillingBar.style.width = percentage + "%";
+                percentageElement.textContent = Math.round(percentage) + "%";
+                seconds--;
+
+                if (seconds < 0) {
+                    window.location.href = "https://bento.me/mrcherif";
+                } else {
+                    setTimeout(updateCountdown, 1000);
+                }
+            } else {
+                setTimeout(updateCountdown, 1000);
+            }
+        }
+
+        function togglePause() {
+            paused = !paused;
+
+            if (paused) {
+                pauseButton.style.display = "none";
+                skipButton.style.display = "block";
+            } else {
+                pauseButton.style.display = "block";
+                skipButton.style.display = "none";
+            }
+        }
+
+        function skipRedirectCountdown() {
+            window.location.href = "https://bento.me/mrcherif";
+        }
+
+        pauseButton.addEventListener("click", togglePause);
+        skipButton.addEventListener("click", skipRedirectCountdown);
+        updateCountdown();
+    </script>
+</body>
+</html>
