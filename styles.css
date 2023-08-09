@@ -6,18 +6,13 @@ body {
     color: #fff;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     min-height: 100vh;
 }
 
 .content {
     text-align: center;
-}
-
-h1 {
-    font-size: 2em;
-    margin-bottom: 10px;
+    margin: 20px 0;
 }
 
 .loading-container {
@@ -83,11 +78,8 @@ h1 {
 }
 
 .banner-container {
-    position: fixed;
-    top: 45%;
-    left: 15%;
-    transform: translateY(-50%);
-    z-index: 9999;
+    text-align: center;
+    margin: 20px 0;
 }
 
 .banner {
@@ -125,12 +117,14 @@ h1 {
     background-color: #00ffff;
     border: none;
     color: #111;
-    padding: 5px 10px;
+    padding: 8px 16px;
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
     font-size: 14px;
     transition: background-color 0.3s, color 0.3s;
+    display: block;
+    margin: 10px auto;
 }
 
 .pause-button:hover {
@@ -153,8 +147,17 @@ h1 {
     }
     .construction-gif {
         max-width: 80%;
+        margin-top: 10px;
     }
     .banner {
-        width: 200px;
+        width: 80%;
+        max-width: 250px;
+    }
+    .banner-container {
+        margin: 10px 0;
+    }
+    .banner img {
+        max-width: 100%;
+        height: auto;
     }
 }
